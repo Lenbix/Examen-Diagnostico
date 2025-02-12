@@ -1,0 +1,134 @@
+<!--
+Este documento HTML define un formulario titulado "Cuestionario para Familiares" 
+donde los usuarios pueden ingresar información personal, preferencias y opiniones.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"> <!-- Configuración de codificación para caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que el sitio sea responsive -->
+    <title>Cuestionario Familiar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 80%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cuestionario para Familiares</h2>
+        
+        <form>
+            <!-- Campo para ingresar el nombre completo -->
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+            
+            <!-- Campo para ingresar la fecha de nacimiento -->
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+            
+            <!-- Campo para ingresar la edad -->
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required><br><br>
+            
+            <!-- Menú desplegable para seleccionar el sexo -->
+            <label>Sexo:</label>
+            <select name="sexo" id="sexo" required>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select><br><br>
+            
+            <!-- Campo para ingresar la ocupación -->
+            <label for="ocupacion">Ocupación:</label>
+            <input type="text" id="ocupacion" name="ocupacion" required><br><br>
+            
+            <!-- Campo para ingresar un hobbie -->
+            <label for="hobbie">Hobbie:</label>
+            <input type="text" id="hobbie" name="hobbie" required><br><br>
+            
+            <!-- Campo para ingresar la película favorita -->
+            <label for="pelicula">Película Favorita:</label>
+            <input type="text" id="pelicula" name="pelicula" required><br><br>
+            
+            <!-- Campo para ingresar la comida favorita -->
+            <label for="comida">Comida Favorita:</label>
+            <input type="text" id="comida" name="comida" required><br><br>
+            
+            <!-- Campo para ingresar el animal favorito -->
+            <label for="animal">Animal Favorito:</label>
+            <input type="text" id="animal" name="animal" required><br><br>
+            
+            <!-- Campo para escribir expectativas -->
+            <label for="expectativa">¿Qué esperas de mí en la carrera?</label><br>
+            <textarea id="expectativa" name="expectativa" rows="4" cols="50" required></textarea><br><br>
+            
+            <!-- Pregunta sobre orgullo -->
+            <label>¿Estás orgulloso de mí?</label><br>
+            <input type="radio" id="orgulloso_si" name="orgullo" value="si" required>
+            <label for="orgulloso_si">Sí</label><br>
+            <input type="radio" id="orgulloso_no" name="orgullo" value="no" required>
+            <label for="orgulloso_no">No, porque:</label>
+            <input type="text" id="razon_no" name="razon_no" disabled><br><br>
+            
+            <!-- Botón para enviar el formulario -->
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
+    <script>
+        // Habilita el campo de texto "razon_no" solo si el usuario selecciona "No" en la pregunta sobre orgullo
+        document.getElementById("orgulloso_no").addEventListener("change", function() {
+            document.getElementById("razon_no").disabled = !this.checked;
+        });
+    </script>
+</body>
+</html>
